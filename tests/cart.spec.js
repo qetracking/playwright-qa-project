@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test.describe('Login tests', () => {
+test.describe('Cart tests', () => {
 
 test('Add to cart', async ({ page }) => {
 
@@ -32,6 +32,25 @@ test('Cart counter increases', async ({ page }) => {
   await page.click('text=Add to cart');
 
   await expect(cartBadge).toHaveText('1');
+});
+
+test('Button state | Add to cart button changes to Remove', async ({ page }) => {
+
+  await page.goto('https://www.saucedemo.com/');
+
+  await page.fill('#user-name', 'standard_user');
+  await page.fill('#password', 'secret_sauce');
+
+  await page.click('#login-button');
+
+  const button = page.locator('text=Add to cart').first();
+
+  await expect(button).toHaveText('Add to cart');
+
+  await button.click();
+
+  await expect(page.locator('text=Remove').first()).toBeVisible();
+
 });
 
 });

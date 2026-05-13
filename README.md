@@ -81,7 +81,7 @@ playwright-qa-project/
 
 ## Author
 
-QA Automation practice project using Playwright.
+QA Automation portfolio project created with Playwright and JavaScript.
 
 
 

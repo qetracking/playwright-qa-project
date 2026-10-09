@@ -1,10 +1,20 @@
+
 {
-  "name": "playwrite_projects",
+  "name": "playwright-qa-portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "QA portfolio with Playwright UI and API tests",
   "main": "index.js",
-  "scripts": {},
-  "keywords": [],
+  "scripts": {
+    "test": "playwright test",
+    "test:report": "playwright show-report"
+  },
+  "keywords": [
+    "qa",
+    "playwright",
+    "api-testing",
+    "functional-testing",
+    "regression-testing"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",

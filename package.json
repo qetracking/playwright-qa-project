@@ -1,4 +1,3 @@
-
 {
   "name": "playwright-qa-portfolio",
   "version": "1.0.0",
@@ -6,20 +5,26 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "test:cucumber": "cucumber-js docs/features/login.feature --require tests/cucumber/steps/login.steps.js"
   },
   "keywords": [
     "qa",
     "playwright",
     "api-testing",
     "functional-testing",
-    "regression-testing"
+    "regression-testing",
+    "cucumber",
+    "gherkin",
+    "bdd"
   ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@cucumber/cucumber": "^13.3.0",
     "@playwright/test": "^1.59.1",
-    "@types/node": "^25.6.0"
+    "@types/node": "^25.6.0",
+    "playwright": "^1.59.1"
   }
 }

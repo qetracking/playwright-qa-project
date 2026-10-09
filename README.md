@@ -1,180 +1,177 @@
-# Playwright QA Automation Project
+# Playwright QA Automation Portfolio
 
 ## Overview
 
-This project contains automated UI and API tests built with Playwright and JavaScript.
+This project demonstrates functional UI testing, API testing, regression scenarios, cross-browser execution, Page Object Model (POM), and BDD using Cucumber and Gherkin.
 
-The objective of this project is to practice QA Automation concepts, API Testing, cross-browser execution, Git/GitHub workflows, and technical documentation.
-
----
+The project uses SauceDemo for UI testing and a public API for practice. GitHub Actions is configured to execute the Playwright test suite automatically.
 
 ## Technologies Used
 
-* Playwright
-* JavaScript
-* Node.js
-* Git
-* GitHub
-* Visual Studio Code
+- Playwright Test
+- Playwright
+- JavaScript
+- Node.js and npm
+- Cucumber
+- Gherkin
+- Page Object Model (POM)
+- Git and GitHub
+- GitHub Actions
+- Visual Studio Code
 
----
-
-## Automated Test Scenarios
+## Automated Test Coverage
 
 ### UI Testing
 
-#### Login
+**Authentication**
+- Valid login
+- Invalid login
+- Login with empty fields
 
-* Valid Login
-* Invalid Login
-* Login with Empty Fields
+**Shopping cart**
+- Add product to cart
+- Validate cart counter
+- Validate button state: Add to Cart → Remove
 
-#### Cart
-
-* Add Product to Cart
-* Cart Counter Validation
-* Button State Validation (Add to Cart → Remove)
-
-#### Checkout
-
-* Checkout Validation with Empty Fields
-* Successful Checkout Process
-
----
+**Checkout**
+- Validate checkout with empty fields
+- Complete checkout successfully
 
 ### API Testing
 
-#### GET Requests
+- GET post by ID — status 200
+- POST create post — status 201
+- GET invalid post — status 404
 
-* Get Post by ID (Status 200)
+### BDD with Cucumber and Gherkin
 
-#### POST Requests
+The project includes three Gherkin login scenarios:
 
-* Create Post Successfully (Status 201)
+- Successful login
+- Login with an incorrect password
+- Login without a username
 
-#### Negative Testing
+Cucumber step definitions execute the scenarios using Playwright.
 
-* Get Invalid Post (Status 404)
+## Page Object Model
 
----
+The login page interactions are encapsulated in `pages/LoginPage.js`. The page object provides reusable locators and login-related actions.
 
-## Browsers Tested
+## Cross-Browser Testing
 
-* Chromium
-* Firefox
-* WebKit (Safari Engine)
+The Playwright configuration includes:
 
----
+- Chromium
+- Firefox
+- WebKit (Safari engine)
+
+The original Playwright suite contains 33 test executions across the configured browser projects.
 
 ## How to Run Tests
 
-Run all tests:
+Install project dependencies:
 
 ```bash
-npx playwright test
+npm install
 ```
 
-Run a specific test file:
+Run the Playwright test suite:
 
 ```bash
-npx playwright test tests/login.spec.js
+npm test
 ```
 
-Run tests in headed mode:
+Run Cucumber scenarios:
 
 ```bash
-npx playwright test --headed
+npm run test:cucumber
 ```
 
----
-
-## HTML Report
-
-Generate and open the Playwright report:
+Open the Playwright HTML report:
 
 ```bash
-npx playwright show-report
+npm run test:report
 ```
 
----
+## Continuous Integration
+
+The GitHub Actions workflow is located at:
+
+`.github/workflows/playwright.yml`
+
+It installs dependencies and browsers, runs the Playwright test suite, and uploads the HTML report as an artifact.
+
+The workflow runs on pushes to `main`, pull requests targeting `main`, and manual execution.
 
 ## Project Structure
 
-```txt
-playwrite_projects/
-│
+```text
+01_PLAYWRIGHT_PORTFOLIO/
+├── .github/
+│   └── workflows/
+│       └── playwright.yml
 ├── docs/
-│   ├── PLAYWRIGHT_LEARNING_GUIDE_ES.md
-│   └── PLAYWRIGHT_LEARNING_GUIDE_EN.md
-│
+│   ├── features/
+│   │   └── login.feature
+│   ├── PLAYWRIGHT_LEARNING_GUIDE_EN.md
+│   └── PLAYWRIGHT_LEARNING_GUIDE_ES.md
+├── pages/
+│   └── LoginPage.js
 ├── tests/
-│   ├── login.spec.js
-│   ├── cart.spec.js
-│   ├── checkout.spec.js
-│   └── api.spec.js
-│
+│   ├── api/
+│   │   └── api.spec.js
+│   ├── authentication/
+│   │   └── login.spec.js
+│   ├── cart/
+│   │   └── cart.spec.js
+│   ├── checkout/
+│   │   └── checkout.spec.js
+│   └── cucumber/
+│       └── steps/
+│           └── login.steps.js
 ├── README.md
-├── playwright.config.js
 ├── package.json
 ├── package-lock.json
-└── .gitignore
+└── playwright.config.js
 ```
-
----
 
 ## Documentation
 
-Additional project documentation is available in:
+The `docs` directory contains the bilingual learning guides:
 
-* docs/PLAYWRIGHT_LEARNING_GUIDE_EN.md
-* docs/PLAYWRIGHT_LEARNING_GUIDE_ES.md
+- `PLAYWRIGHT_LEARNING_GUIDE_EN.md`
+- `PLAYWRIGHT_LEARNING_GUIDE_ES.md`
 
-These documents include:
+The guides cover UI and API testing concepts, locators, assertions, HTTP status codes, JSON responses, test execution, and lessons learned.
 
-* Learning notes
-* QA concepts
-* UI Testing concepts
-* API Testing concepts
-* Status Codes
-* Assertions
-* Lessons Learned
-* Playwright Quick Reference
+## Skills Demonstrated
 
----
+- Functional and regression testing
+- UI and API test automation
+- Positive and negative test scenarios
+- Cross-browser testing
+- Page Object Model
+- BDD scenario writing with Gherkin
+- Cucumber step definitions
+- Git and GitHub workflows
+- CI/CD with GitHub Actions
+- Test reporting and technical documentation
 
-## Skills Practiced
+## Verified Local Results
 
-### QA Automation
+The following results were confirmed during local execution:
 
-* UI Test Automation
-* API Test Automation
-* Cross-Browser Testing
-* Functional Validation
-* Negative Testing
+- Playwright Test: 33 tests passed
+- Cucumber: 3 scenarios and 18 steps passed
 
-### Technical Skills
+These results describe the local test runs. The current GitHub Actions status should be checked separately after the latest changes are pushed.
 
-* Playwright
-* JavaScript
-* Git
-* GitHub
-* HTML Reporting
+## Project Status
 
-### Documentation
+**Version:** Playwright UI + API V1, extended with POM, Cucumber/Gherkin, and CI/CD.
 
-* Technical Writing
-* Test Documentation
-* Learning Guides
-* Bilingual Documentation (English / Spanish)
-
----
-
-## Current Project Status
-
-Version: Playwright UI + API V1
-
-Status: Completed
----
+**Status:** Implemented and locally validated. Documentation and repository updates are pending.
 
 ## Author
+
 QA Automation Portfolio Project

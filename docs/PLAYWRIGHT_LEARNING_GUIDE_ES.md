@@ -751,3 +751,57 @@ Versión: Playwright UI + API V1
 
 Estado: Completado
 
+---
+
+# 13. Evolución del Proyecto: POM, BDD y CI/CD
+
+## Page Object Model (POM)
+
+Las interacciones de la página de login están organizadas en `pages/LoginPage.js`.
+
+El objeto de página centraliza los localizadores del campo de usuario, campo de contraseña, botón de login y mensaje de error, además de la acción de inicio de sesión. Esto reduce la duplicación de código y facilita el mantenimiento.
+
+## BDD con Cucumber y Gherkin
+
+El proyecto incluye el archivo de escenarios Gherkin:
+
+`docs/features/login.feature`
+
+Se documentaron tres escenarios:
+
+- Login exitoso
+- Login con contraseña incorrecta
+- Login sin nombre de usuario
+
+Las definiciones de los pasos están implementadas en:
+
+`tests/cucumber/steps/login.steps.js`
+
+Cucumber conecta los pasos escritos en Gherkin con las acciones del navegador y las validaciones implementadas mediante Playwright.
+
+Ejecuta los escenarios con:
+
+```bash
+npm run test:cucumber
+```
+
+## Integración Continua
+
+El workflow de GitHub Actions se encuentra en `.github/workflows/playwright.yml`.
+
+El workflow instala las dependencias y los navegadores, ejecuta la suite de Playwright y publica el reporte HTML como artefacto.
+
+## Resultados verificados
+
+Los siguientes resultados se confirmaron durante las ejecuciones locales:
+
+- Playwright Test: 33 tests aprobados.
+- Cucumber: 3 escenarios y 18 pasos aprobados.
+
+Estos resultados corresponden a las ejecuciones realizadas durante el desarrollo.
+
+## Estado actual
+
+En este portafolio de aprendizaje se han implementado pruebas UI y API con Playwright, Page Object Model, Cucumber/Gherkin y GitHub Actions.
+
+Los próximos temas de aprendizaje pueden incluir fixtures, reportes avanzados, pruebas basadas en datos y escenarios API más complejos.

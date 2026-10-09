@@ -1,13 +1,14 @@
 const { test, expect } = require('@playwright/test');
+const { LoginPage } = require('../../pages/LoginPage');
 
 test.describe('Login tests', () => {
 
 test('Login válido | User can login with valid credentials', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+
   await page.goto('https://www.saucedemo.com/');
 
-  await page.fill('#user-name', 'standard_user');
-  await page.fill('#password', 'secret_sauce');
-  await page.click('#login-button');
+  await loginPage.login('standard_user', 'secret_sauce');
 
   await expect(page).toHaveURL(/inventory/);
 });
